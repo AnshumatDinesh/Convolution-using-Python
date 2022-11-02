@@ -10,8 +10,8 @@ class definer:
         self.x2=20#Upper limit of signal 1
         self.h1=0#Lower limit of signal 2
         self.h2=20#Upper limit of signal 2
-        self.t=array([])#Creting an empty array for time axis
-        self.s=0
+        self.t=array([])#Creating an empty array for time axis
+        self.s=0#The size of time axis
         return
     def create_time_axis(self):
         '''This method returns a time axis'''
@@ -24,7 +24,7 @@ class definer:
         else:
             self.s=ceil(self.xi2)+ceil(self.xi2)+1
             self.t=linspace(-ceil(self.xi2),ceil(self.xi2),self.s)
-        return self.t
+        return self.t#Returning the time axis
 class function_input:
     '''This class deals with the input of symbolic functions as numpy arrays'''
     def __init__(self) -> None:
@@ -89,6 +89,7 @@ class Convolution:
         plot(self.t,self.conv_x_h[0])
         title("X(t)*H(t)") 
         show()
+
 c=Convolution()
 c.start()
 c.graph()
