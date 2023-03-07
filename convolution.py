@@ -1,8 +1,8 @@
-from numpy import array,linspace,zeros,roll,fliplr
+from numpy import array,linspace,zeros,roll,fliplr,append
 from math import ceil
-import numpy
 from sympy import symbols,sympify,lambdify
-from matplotlib.pyplot import subplot,plot,title,show
+from matplotlib.pyplot import subplot,plot,title,show,stem
+#Group2
 class definer:
     '''This class defines the time axis and the bounds for the basic signals'''
     def __init__(self) -> None:
@@ -78,6 +78,7 @@ class Convolution:
         self.h_samp=samp.sample(h,(defin.h1,defin.h2),defin.s)
         calc=calculator(defin.s)
         self.conv_x_h=calc.calculate(self.x_samp,self.h_samp,(defin.xi1,defin.xi2))
+            
     def graph(self):
         subplot(3,1,1)
         plot(self.t,self.x_samp[0])
@@ -89,7 +90,7 @@ class Convolution:
         plot(self.t,self.conv_x_h[0])
         title("X(t)*H(t)") 
         show()
-
+    
 c=Convolution()
 c.start()
 c.graph()
